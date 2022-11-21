@@ -1,25 +1,38 @@
-import logo from './logo.svg';
+
 import './App.css';
+import React from 'react';
+import {Form} from  "semantic-ui-react";
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{
+      display:"flex",
+      alignItems:"center",
+      justifyContent:"center",
+      height:"100vh"
+
+    }}>
+      <Form style={{width:"300"}}>
+        <Form.Input name="title" placeholder="titulo"/>
+        <Form.Dropdown
+          options={categoriesOptions}
+          selection
+         />
+        <Form.Checkbox
+        label="aceptar condiciones"/>
+        <Form.Button type='Submit'>Enviar</Form.Button>
+      </Form>
     </div>
   );
+
 }
+
+const categoriesOptions=[
+  {key:"react", value:"react",text:"react"},
+  {key:"next", value:"next",text:"next"}
+];
+
 
 export default App;
